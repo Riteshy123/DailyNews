@@ -17,6 +17,12 @@ function bindData(articles) {
     const cardsContainer = document.getElementById("cards-container");
     const newsCardTemplate = document.getElementById("template-news-card");
 
+    // Check if articles is defined and is an array
+    if (!articles || !Array.isArray(articles)) {
+        console.error("Invalid or empty articles data");
+        return;
+    }
+
     cardsContainer.innerHTML = "";
 
     articles.forEach((article) => {
@@ -26,6 +32,7 @@ function bindData(articles) {
         cardsContainer.appendChild(cardClone);
     });
 }
+
 
 function fillDataInCard(cardClone, article) {
     const newsImg = cardClone.querySelector("#news-img");
